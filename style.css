@@ -1,5 +1,9 @@
-body { color:#FFF; background-color:#000 }
+#main { color: #FFF; background-color: #000; text-align: center }
+
 a:link { color: #2B60DE; text-decoration: none }
 a:visited { color: #4E387E; text-decoration: none }
 a:hover { color:#306EFF; text-decoration: none }
-.center { text-align:center }
+img { border: none; vertical-align: middle }
+
+.center { text-align: center }
+#footer { font-size: 11px; color: #666; text-align: center }
