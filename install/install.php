@@ -56,6 +56,10 @@
     $pass = $_POST['upass'];
     $link = mysql_connect($host, $uname, $pass) or die("Couldn't connect to to mysql: " . mysql_error() . "<br />Double check your information and <a href=\"install.php\">re-enter</a> it.");
     mysql_select_db($dbname) or die("Couldn't select database $dbname. Double check your mysql information and <a href=\"install.php\">re-enter</a> it.");
+    $query = "CREATE TABLE minibooru ( filename TEXT NOT NULL, tags TEXT NOT NULL, width INT UNSIGNED NOT NULL, height INT UNSIGNED NOT NULL, date DATETIME NOT NULL)";
+    mysql_query($query) or die("Coludn't create table minibooru: " . mysql_error() .
+      "<br />Double check your information and <a href=\"install.php\">re-enter</a> it.");
+    mysql_close($link);
     if(!is_writable("../config.php")) {
 ?>
 Couldn't write to config file. Paste the following into it or get write permissions:<br />
