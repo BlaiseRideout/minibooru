@@ -61,25 +61,25 @@ Couldn't write to config file. Paste the following into it or get write permissi
 <textarea cols="30" rows="9">
 <?php
   echo "<?php\n";
-  echo "\$title = \"$title\"\n";
-  echo "\$imagedir = \"$imagedir\"\n\n";
+  echo "\$title = \"$title\";\n";
+  echo "\$imagedir = \"$imagedir\";\n\n";
 
-  echo "\$mysql_host = \"$host\"\n";
-  echo "\$mysql_database = \"$dbname\"\n";
-  echo "\$mysql_user = \"$uname\"\n";
-  echo "\$mysql_password = \"$pass\"\n?>";
+  echo "\$mysql_host = \"$host\";\n";
+  echo "\$mysql_database = \"$dbname\";\n";
+  echo "\$mysql_user = \"$uname\";\n";
+  echo "\$mysql_password = \"$pass\";\n?>";
   echo "</textarea>\n<br />";
   echo "When finished, <a href=\"remove.php\">Click here</a>\n";
 }
 else {
   $conffile = fopen("../config.php", "w");
   fwrite($conffile, "<?php\n");
-  fwrite($conffile, "\$title = \"$title\"\n");
-  fwrite($conffile, "\$imagedir = \"$imagedir\"\n\n");
-  fwrite($conffile, "\$mysql_host = \"$host\"\n");
-  fwrite($conffile, "\$mysql_databale = \"$dbname\"\n");
-  fwrite($conffile, "\$mysql_user = \"$uname\"\n");
-  fwrite($conffile, "\$mysql_password = \"$pass\"\n?>\n");
+  fwrite($conffile, "\$title = \"$title\";\n");
+  fwrite($conffile, "\$imagedir = \"$imagedir\";\n\n");
+  fwrite($conffile, "\$mysql_host = \"$host\";\n");
+  fwrite($conffile, "\$mysql_databale = \"$dbname\";\n");
+  fwrite($conffile, "\$mysql_user = \"$uname\";\n");
+  fwrite($conffile, "\$mysql_password = \"$pass\";\n?>\n");
 ?>
 Config file written. <a href="remove.php">Click here</a>
 <?php
