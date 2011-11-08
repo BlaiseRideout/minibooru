@@ -1,9 +1,15 @@
 #main { color: #FFF; background-color: #000; text-align: center }
+#search {color: #FFF; background-color: #000; text-asign: left }
 
 a:link { color: #2B60DE; text-decoration: none }
 a:visited { color: #4E387E; text-decoration: none }
-a:hover { color:#306EFF; text-decoration: none }
+a:hover { color:#407EFF; text-decoration: none }
 img { border: none; vertical-align: middle }
 
 .center { text-align: center }
-#footer { font-size: 11px; color: #666; text-align: center }
+.thumb { height: 200px; width: 200px; display: inline-block; float: left; text-align:center; vertical-align: middle; margin-bottom: 15px }
+#footer { font-size: 11px; color: #666; text-align: center; margin-top: 20px }
+#header { margin-bottom: 20px }
+#sidebar { max-width: 200px; width: 20%; float: left; word-wrap: break-word; border-right: 1px solid #BBB; border-bottom: 1px solid #BBB }
+#content { margin-left: 20px; float: left; width: 80% }
+#searchbox { background-color: #CCC; border: none }

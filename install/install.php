@@ -54,7 +54,8 @@
     $dbname = $_POST['dbname'];
     $uname = $_POST['uname'];
     $pass = $_POST['upass'];
-
+    $link = mysql_connect($host, $uname, $pass) or die("Couldn't connect to to mysql: " . mysql_error() . "<br />Double check your information and <a href=\"install.php\">re-enter</a> it.");
+    mysql_select_db($dbname) or die("Couldn't select database $dbname. Double check your mysql information and <a href=\"install.php\">re-enter</a> it.");
     if(!is_writable("../config.php")) {
 ?>
 Couldn't write to config file. Paste the following into it or get write permissions:<br />
@@ -77,7 +78,7 @@ else {
   fwrite($conffile, "\$title = \"$title\";\n");
   fwrite($conffile, "\$imagedir = \"$imagedir\";\n\n");
   fwrite($conffile, "\$mysql_host = \"$host\";\n");
-  fwrite($conffile, "\$mysql_databale = \"$dbname\";\n");
+  fwrite($conffile, "\$mysql_database = \"$dbname\";\n");
   fwrite($conffile, "\$mysql_user = \"$uname\";\n");
   fwrite($conffile, "\$mysql_password = \"$pass\";\n?>\n");
 ?>

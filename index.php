@@ -3,27 +3,47 @@
 <head>
 <title>
 <?php
-  include 'config.php';
-  echo "$title";
+//  if(isset($_GET['remove'])) {
+//    rmdir("./install/");
+//  }
+  if(file_exists('config.php')) {
+    include 'config.php';
+    echo "$title";
 ?>
-<link rel="stylesheet" type="text/css" href="/style.css" />
-<link rel="favorite icon" href="/favicon.png" />
 </title>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="favorite icon" href="favicon.png" />
 </head>
 <body id="main">
-<h1><?php echo "$title"; ?></h2>
+<h1><?php echo "$title"; ?></h1>
 <div id="navbar">
-  <a href="/search.php?s=new&amp;a=list">Newest</a>
-  <a href="/upload.php">Upload</a>
-  <a href="/settings.php">Settings</a>
-  <a href="/about.php">About</a>
+  <a href="index.php">Home</a>
+  <a href="search.php?s=new">Newest</a>
+  <a href="upload.php">Upload</a>
+  <a href="about.php">About</a>
 </div>
-<form action="/search.php" method="get">
+<form action="search.php" method="get">
   <div>
     <input id="searchbox" name="q" size="30" type="text" />
     <input id="searchbutton" type="submit" value="Search" />
   </div>
 </form>
 <div id="footer">Running minibooru 0.1</div>
+<?php
+  }
+  else {
+?>
+No config!</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="favorite icon" href="favicon.png" />
+</head>
+<body id="main">
+<h1>No config.php!</h1>
+There doesn't appear to be a config.php file present. This file is necessary for proper operation of the site.<br />
+If this is a new install, you can <a href="install">click here</a> to make one. If not, you should re-download<br />
+<a href="https://github.com/rippinblaise/minibooru">minibooru</a>
+<?php
+  }
+?>
 </body>
 </html>
