@@ -91,14 +91,15 @@ else
 $result = mysql_query($query) or die(mysql_error());
 $row = mysql_fetch_array($result);
 while($row) {
-  echo "<span class=\"thumb\"><a href=\"images/$row[filename]\"><img src=\"thumbnails/$row[filename]\" alt=\"$row[tags]\" title=\"$row[tags]\"></a></span>\n";
+  echo "<span class=\"thumb\"><a href=\"images/$row[filename]\"><img src=\"thumbs/$row[filename]\" alt=\"$row[tags]\" title=\"$row[tags]\"></a></span>\n";
   $row = mysql_fetch_array($result);
 }
 echo "</div>\n<div id=\"pages\">\n";
 $numpages = floor($numimages / 20);
 $page /= 20;
-if($page > 0) {
-  echo "<a href=\"search.php?p=" . $page - 1;
+if($page != 0) {
+  echo "<a href=\"search.php?p=";
+  echo $page - 1;
   if(isset($_GET['q']))
     echo "&q=" . $_GET['q'];
   if(isset($_GET['s']))
@@ -109,22 +110,27 @@ else {
   echo "<\n";
 }
 if($numpages != 0) {
-  for($i = $numpages - 5, $numprinted = 0; $i <= $numpages, $numprinted <= 10; $i++, $numprinted++) {
+  for($i = $numpages - 5, $numprinted = 0; $i <= $numpages && $numprinted <= 10; $i++, $numprinted++) {
     if($i < 0)
       $i = 0;
-    echo "<a href=\"search.php?p=$i";
-    if(isset($_GET['q']))
-      echo "&q=" . $_GET['q'];
-    if(isset($_GET['s']))
-      echo "&s=" . $_GET['s'];
-    echo "\">$i</a>\n";
+    if($i == $page)
+      echo "$i\n";
+    else {
+      echo "<a href=\"search.php?p=$i";
+      if(isset($_GET['q']))
+        echo "&q=" . $_GET['q'];
+      if(isset($_GET['s']))
+        echo "&s=" . $_GET['s'];
+      echo "\">$i</a>\n";
+    }
   }
 }
 else {
   echo "0\n";
 }
 if($numpages > $page) {
-  echo "<a href=\"search.php?p=" . $page + 1;
+  echo "<a href=\"search.php?p=";
+  echo $page + 1;
   if(isset($_GET['q']))
     echo "&q=" . $_GET['q'];
   if(isset($_GET['s']))
