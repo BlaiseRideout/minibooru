@@ -27,13 +27,12 @@
 </div>
 <div id="sidebar">
   <form action="search.php" method="get">
-    <div>
-      <input id="searchbox" name="q" size="25" type="text"
+    <div id="searcharea">
+      <input id="searchbox" name="q" size="22" type="text"
 <?php
   if(isset($_GET['q']))
     echo "value=\"$_GET[q]\"";
-?>
-/><br />
+?>/><br />
       <input id="searchbutton" type="submit" value="Search" />
     </div>
   </form>
@@ -75,8 +74,11 @@
             $filename = "";
           if($filename && move_uploaded_file($_FILES['file']['tmp_name'], "$imagedir/$filename")) {
             list($width, $height, $type, $attr) = getimagesize("$imagedir/$filename");
+            $newa = explode(' ', $tags);
+            sort($newa);
+            $tags = implode(" ", $newa);
             $query = "INSERT INTO `minibooru`
-VALUES ( '$filename', '$tags', $width, $height, NOW() )";
+                      VALUES ( '$filename', '$tags', $width, $height, NOW() )";
             mysql_query($query) or die(mysql_error());
             $image = new Imagick("$imagedir/$filename");
             $image->thumbnailImage(200, 200, true);

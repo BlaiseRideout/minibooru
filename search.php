@@ -31,13 +31,12 @@
 </div>
 <div id="sidebar">
   <form action="search.php" method="get">
-    <div>
-      <input id="searchbox" name="q" size="25" type="text"
+    <div id="searcharea">
+      <input id="searchbox" style="width: 96%" name="q" type="text"
 <?php
   if(isset($_GET['q']))
     echo "value=\"$_GET[q]\"";
-?>
-/><br />
+?>/><br />
       <input id="searchbutton" type="submit" value="Search" />
     </div>
   </form>
@@ -91,10 +90,10 @@ else {
   $result = mysql_query($query) or die(mysql_error());
   $row = mysql_fetch_array($result);
   while($row) {
-    echo "<span class=\"thumb\"><a href=\"images/$row[filename]\"><img src=\"thumbs/$row[filename]\" alt=\"$row[tags]\" title=\"$row[tags]\"></a></span>\n";
+    echo "<span class=\"thumb\"><a href=\"view.php?id=$row[filename]\"><img src=\"thumbs/$row[filename]\" alt=\"$row[tags]\" title=\"$row[tags]\"></a></span>\n";
     $row = mysql_fetch_array($result);
   }
-  echo "</div>\n<div id=\"pages\">\n";
+  echo "</div>\n<br /><span id=\"pages\">\n";
   $numpages = floor($numimages / 20);
   $page /= 20;
   if($page != 0) {
@@ -140,7 +139,7 @@ else {
   else {
     echo ">\n";
   }
-  echo "</div>";
+  echo "</span>";
 }
 ?>
 </div>

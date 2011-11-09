@@ -3,9 +3,9 @@
 <head>
 <title>
 <?php
-//  if(isset($_GET['remove'])) {
-//    rmdir("./install/");
-//  }
+  if(isset($_GET['remove'])) {
+    rmdir("./install/");
+  }
   if(file_exists('config.php')) {
     include 'config.php';
     echo "$title";
