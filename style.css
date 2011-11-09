@@ -13,6 +13,6 @@ img { border: none; vertical-align: middle }
 #header { margin-bottom: 20px }
 #sidebar { max-width: 200px; width: 20%; float: left; word-wrap: break-word; border-right: 1px solid #BBB; border-bottom: 1px solid #BBB }
 #content { margin-left: 20px; float: left; width: 80% }
-#thumbs { display: inline-block; float: left }
-#pages { margin-top: 10px; display: inline-block; float: left }
+#thumbs { display: inline-block; float: left margin-bottom: 5px }
+#pages { margin-top: 5px; display: inline-block; float: left }
 #searchbox { background-color: #CCC; border: none }
