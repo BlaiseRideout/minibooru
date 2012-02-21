@@ -45,9 +45,9 @@
 <?php
 if(isset($_GET['q'])) {
   $keywords = explode(" ", $_GET['q']);
-  $query = "WHERE tags LIKE \"%$keywords[0]%\" ";
+  $query = "WHERE tags LIKE \"% $keywords[0] %\" ";
   for($i = 1; $i < count($keywords); $i++) {
-    $query .= "AND tags LIKE \"%$keywords[$i]%\" ";
+    $query .= "AND tags LIKE \"% $keywords[$i] %\" ";
   }
 }
 else {

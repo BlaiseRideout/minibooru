@@ -55,7 +55,7 @@
       $newa = explode(' ', $newu);
       sort($newa);
       $new = implode(" ", $newa);
-      $query = "UPDATE `minibooru` SET `tags` = '$new' WHERE `filename` = '$id' LIMIT 1";
+      $query = "UPDATE `minibooru` SET `tags` = ' $new ' WHERE `filename` = '$id' LIMIT 1";
       $result = mysql_query($query) or die(mysql_error());
       echo "Updated tags successfully<br />\n";
     }

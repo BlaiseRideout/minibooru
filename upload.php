@@ -78,7 +78,7 @@
             sort($newa);
             $tags = implode(" ", $newa);
             $query = "INSERT INTO `minibooru`
-                      VALUES ( '$filename', '$tags', $width, $height, NOW() )";
+                      VALUES ( '$filename', ' $tags ', $width, $height, NOW() )";
             mysql_query($query) or die(mysql_error());
             $image = new Imagick("$imagedir/$filename");
             $image->thumbnailImage(200, 200, true);
