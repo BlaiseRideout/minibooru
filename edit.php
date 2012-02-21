@@ -60,7 +60,7 @@
       echo "Updated tags successfully<br />\n";
     }
     else {
-      $tags = $row['tags'];
+      $tags = $tags = substr($row['tags'], 1, strlen($row['tags']) - 2);
       echo "<img src=\"$imagedir/$id\" alt=\"$tags\" title=\"$tags\"><br />\n"
 ?>
 <form action="edit.php" method="GET">

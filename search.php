@@ -90,7 +90,8 @@ else {
   $result = mysql_query($query) or die(mysql_error());
   $row = mysql_fetch_array($result);
   while($row) {
-    echo "<span class=\"thumb\"><a href=\"view.php?id=$row[filename]\"><img src=\"thumbs/$row[filename]\" alt=\"$row[tags]\" title=\"$row[tags]\"></a></span>\n";
+    $tags = substr($row['tags'], 1, strlen($row['tags']) - 2);
+    echo "<span class=\"thumb\"><a href=\"view.php?id=$row[filename]\"><img src=\"thumbs/$row[filename]\" alt=\"$tags\" title=\"$row[tags]\"></a></span>\n";
     $row = mysql_fetch_array($result);
   }
   echo "</div>\n<br /><span id=\"pages\">\n";

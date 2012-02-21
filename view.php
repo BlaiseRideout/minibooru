@@ -43,7 +43,8 @@
   </form>
   <div id="tags">
 <?php
-  $tags = explode(' ', $row['tags']);
+  $tags = substr($row['tags'], 1, strlen($row['tags']) - 2);
+  $tags = explode(' ', $tags);
   foreach($tags as $tag) {
     echo "<a href=\"search.php?q=$tag\">$tag</a><br />\n";
   }
