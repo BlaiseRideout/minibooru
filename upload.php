@@ -72,7 +72,7 @@
         else {
           if(!(is_writable($imagedir) && is_writable("thumbs")))
             $filename = "";
-          if($filename && move_uploaded_file($_FILES['file']['tmp_name'], "$imagedir/$filename")) {
+          if($filename && $filename != "" && move_uploaded_file($_FILES['file']['tmp_name'], "$imagedir/$filename")) {
             list($width, $height, $type, $attr) = getimagesize("$imagedir/$filename");
             $newa = explode(' ', $tags);
             sort($newa);
