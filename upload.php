@@ -74,7 +74,8 @@
             $filename = "";
           if($filename && $filename != "" && move_uploaded_file($_FILES['file']['tmp_name'], "$imagedir/$filename")) {
             list($width, $height, $type, $attr) = getimagesize("$imagedir/$filename");
-            $newa = explode(' ', $tags);
+            $newa = preg_split('/\s+/', $tags);
+            $newa = array_unique($newa);
             sort($newa);
             $tags = implode(" ", $newa);
             $query = "INSERT INTO `minibooru`

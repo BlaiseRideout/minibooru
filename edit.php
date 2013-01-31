@@ -52,7 +52,8 @@
     $row = mysql_fetch_array($result);
     if(isset($_GET['new'])) {
       $newu = $_GET['new'];
-      $newa = explode(' ', $newu);
+      $newa = preg_split('/\s+/', $newu);
+      $newa = array_unique($newa);
       sort($newa);
       $new = implode(" ", $newa);
       $query = "UPDATE `minibooru` SET `tags` = ' $new ' WHERE `filename` = '$id' LIMIT 1";
