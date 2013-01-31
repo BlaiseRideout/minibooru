@@ -27,6 +27,6 @@
   echo "Total number of images in database: $numimages[0]\n";
 ?>
 <br /><br />
-This booru runs on <a href="https://github.com/rippinblaise/minibooru">minibooru</a>
+This booru runs on <a href="https://github.com/jizzyjugs/minibooru">minibooru</a>
 </body>
 </html>
