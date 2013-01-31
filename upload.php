@@ -57,9 +57,9 @@
         echo "Error uploading file, try again.";
     }
     else {
-      $allowed_filetypes = array(".gif", ".jpg", ".jpeg", ".png", ".PNG", ".JPG", ".JPEG", ".GIF");
+      $allowed_filetypes = array("gif", "jpg", "jpeg", "png");
       $name = $_FILES['file']['name'];
-      $ext = substr($name, strpos($name, '.'), strlen($name) - 1);
+      $ext = strtolower(pathinfo($name)['extension']);
       if(!in_array($ext, $allowed_filetypes))
         echo "Unsupported filetype";
       else {
